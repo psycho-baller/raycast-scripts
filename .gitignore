@@ -5,3 +5,4 @@ IBM
 __pycache__
 .env
 /temp_phone
+.DS_Store
