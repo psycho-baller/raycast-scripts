@@ -1,5 +1,6 @@
 .vscode
 env
+.venv
 env.py
 IBM
 __pycache__
