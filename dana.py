@@ -1,8 +1,10 @@
 import pandas as pd
 
 # Load the Excel file
-file_path = "input_file.xlsx"
-df = pd.read_excel(file_path)
+file_path = "input.xlsx"
+# Load all sheets in the Excel file into a dictionary of DataFrames
+dfs = pd.read_excel(file_path, sheet_name=None, engine='openpyxl')
+writer = pd.ExcelWriter(file_path, engine='openpyxl')
 
 # Loop through all sheets
 for sheet_name, df in dfs.items():
@@ -17,12 +19,7 @@ for sheet_name, df in dfs.items():
                     df.at[index, column_name] = "ND"
 
     # Save the modified DataFrame back to the sheet
-    writer = pd.ExcelWriter(file_path, engine='openpyxl')
-    writer.book = pd.ExcelFile(file_path)  # type: ignore
     df.to_excel(writer, sheet_name=sheet_name, index=False)
-    writer.save()  # type: ignore
-
-# Save the modified DataFrame back to the Excel file
-# df.to_excel("output_file.xlsx", index=False)
+writer.close()
 
 print("Negative numbers in all columns have been replaced with 'ND'.")
