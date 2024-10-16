@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/venv python3
 
 # Required parameters:
 # @raycast.schemaVersion 1
@@ -20,7 +20,7 @@ import sys
 
 # get current date
 today = datetime.datetime.now().strftime("%y-%m-%d")
-path = '/Users/rami/Library/CloudStorage/OneDrive-Personal/Obsidian/0. Journal/0. Daily/'
+path = '/Users/rami/Library/CloudStorage/OneDrive-Personal/Obsidian/0 Journal/0 Daily/'
 full_path = path + today + '.md'
 # open the file
 with open(full_path, 'r') as file:
